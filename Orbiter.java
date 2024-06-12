@@ -5,29 +5,21 @@ public class Orbiter
      * Instance variables for class Ball
      * Variables have basic properties of the ball
      */
-    private double x, y, dx, dy;
-    private int radius, distX, distY;
-    private double mass;
+    private double x, y;
+    private int radius;
     private Color color = Color.red;
     private double angle;
-    private static double angleCounter = 0;
 
     /*
     * constructor for objects of class Ball
     * Starts a timer at when it was created 
     */
  
-    public Orbiter(int x, int y, int radius, int distX, int distY){
+    public Orbiter(int x, int y, int radius){
         this.x = x;
         this.y = y;
-        dx = 3.0;
-        dy = 3.0;
-        mass = 25;
         this.radius = radius;
-        this.distX = distX;
-        this.distY = distY;
-        angle = angleCounter;
-        angleCounter += Math.PI/8;
+        angle = 0;
     }
     /*
      * Getter and Setter methods for class Ball
@@ -41,20 +33,11 @@ public class Orbiter
     public double getY(){
         return y;
     }
-    public double getDx(){
-        return dx;
-    }
-    public double getDy(){
-        return dy;
-    }
     public Color getColor(){
         return color;
     }
     public int getRadius(){
         return radius;
-    }
-    public double getMass(){
-        return mass;
     }
     public void setX(double a){
         x = a;
@@ -62,30 +45,9 @@ public class Orbiter
     public void setY(double a){
         y = a;
     }
-    public void setDx(double a){
-        dx = a;
-    }
-    public void setDy(double a){
-        dy = a;
-    }
-    public void setColor(Color c){
-        color = c;
-    }
-    public void updateVel(double fx, double fy){
-        double ax = fx / mass;
-        double ay = fy / mass;
-        
-        dx += ax;
-        dy += ay;
-    }
     public void move(int cx, int cy, int r){
        x = cx + r*Math.cos(angle);
        y = cy + r*Math.sin(angle);
-    }
-    public int getDistX(){
-        return distX;
-    }
-    public int getDistY(){
-        return distY;
+       angle+=Math.PI/256;
     }
 }

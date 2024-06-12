@@ -6,10 +6,9 @@ public class Meteor
      * Variables have basic properties of the ball
      */
     private double x, y, dx, dy;
-    private int radius, distX, distY;
+    private int radius;
     private double mass;
     private Color color = Color.red;
-    private long startTime;
 
     /*
     * constructor for objects of class Ball
@@ -51,9 +50,6 @@ public class Meteor
     public double getMass(){
         return mass;
     }
-    public long getTime(){
-        return System.currentTimeMillis() - startTime;
-    }
     public void setX(double a){
         x = a;
     }
@@ -66,9 +62,6 @@ public class Meteor
     public void setDy(double a){
         dy = a;
     }
-    public void setColor(Color c){
-        color = c;
-    }
     public void updateVel(double fx, double fy){
         double ax = fx / mass;
         double ay = fy / mass;
@@ -79,11 +72,5 @@ public class Meteor
     public void move(){
         x+=dx;
         y+=dy;
-    }
-    public int getDistX(){
-        return distX;
-    }
-    public int getDistY(){
-        return distY;
     }
 }
