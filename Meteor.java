@@ -1,4 +1,3 @@
-import java.awt.Color;
 public class Meteor
 {
     /*
@@ -8,7 +7,6 @@ public class Meteor
     private double x, y, dx, dy;
     private int radius;
     private double mass;
-    private Color color = Color.red;
 
     /*
     * constructor for objects of class Ball
@@ -20,7 +18,7 @@ public class Meteor
         this.y = y;
         dx = 0;
         dy = 0;
-        mass = 25;
+
         this.radius = radius;
     }
     /*
@@ -35,15 +33,6 @@ public class Meteor
     public double getY(){
         return y;
     }
-    public double getDx(){
-        return dx;
-    }
-    public double getDy(){
-        return dy;
-    }
-    public Color getColor(){
-        return color;
-    }
     public int getRadius(){
         return radius;
     }
@@ -55,12 +44,6 @@ public class Meteor
     }
     public void setY(double a){
         y = a;
-    }
-    public void setDx(double a){
-        dx = a;
-    }
-    public void setDy(double a){
-        dy = a;
     }
     public void updateVel(double fx, double fy){
         double ax = fx / mass;
