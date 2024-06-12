@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JButton;
 
 public class GravityFrame extends JFrame implements ActionListener
@@ -18,7 +17,6 @@ public class GravityFrame extends JFrame implements ActionListener
    private static GravityPanel bp;
    private static JPanel subPanel; 
    private static JButton addMeteors, reset;
-   private static JLabel label;
    /*
    * constructor for objects of OrbiterFrame
    * Creates entire window
@@ -34,7 +32,6 @@ public class GravityFrame extends JFrame implements ActionListener
         bp = new GravityPanel();
         subPanel = new JPanel();
         subPanel.setBackground(Color.gray);
-        label = new JLabel("Top Right Label");
     
         addMeteors = new JButton("Add Meteors");
         reset = new JButton("Reset");
@@ -50,7 +47,6 @@ public class GravityFrame extends JFrame implements ActionListener
         }); 
 
         frame.getContentPane().add(subPanel, BorderLayout.SOUTH);
-        //bp.add(label, BorderLayout.EAST);
         bp.setBackground(Color.darkGray);
         frame.add( bp );
         frame.setSize(900, 720); 
