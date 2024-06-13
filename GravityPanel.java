@@ -63,18 +63,22 @@ public class GravityPanel extends JPanel implements ActionListener
 
        g2d.setPaint(gradient);
        g2d.fill(new Ellipse2D.Double(gp.getX(), gp.getY(), 2*gp.getRadius(), 2*gp.getRadius()));
+
+       Color[] colors2 = {new Color(50, 25, 0), new Color(80, 40, 0)};
        
        for(Meteor b : meteors){
+           center = new Point2D.Float((int)(b.getX()+b.getRadius()), (int)(b.getY() + b.getRadius()));
+           gradient = new RadialGradientPaint(center, (int)(1.5*b.getRadius()), dist, colors2);
            b.move();
-           g.setColor(new Color(102, 51, 0));
-           g.fillOval((int)b.getX(), (int)b.getY(), b.getRadius()*2, b.getRadius()*2);
+           g2d.setPaint(gradient);
+           g2d.fill(new Ellipse2D.Double(b.getX(), b.getY(), 2*b.getRadius(), 2*b.getRadius()));
        }
       
        orbiter.move((int)(gp.getX() + gp.getRadius() - orbiter.getRadius()), (int)(gp.getY() + gp.getRadius() - orbiter.getRadius()), 2*gp.getRadius());
 
        center = new Point2D.Float((int)(orbiter.getX()+orbiter.getRadius()), (int)(orbiter.getY() + orbiter.getRadius()));
-       Color[] colors2 = {new Color(120, 120, 120), Color.black};
-       gradient = new RadialGradientPaint(center, orbiter.getRadius(), dist, colors2);
+       Color[] colors3 = {new Color(120, 120, 120), Color.black};
+       gradient = new RadialGradientPaint(center, orbiter.getRadius(), dist, colors3);
        g2d.setPaint(gradient);
        g2d.fill(new Ellipse2D.Double((int)orbiter.getX(), (int)orbiter.getY(), orbiter.getRadius()*2, orbiter.getRadius()*2));
        g2d.dispose();
@@ -82,6 +86,7 @@ public class GravityPanel extends JPanel implements ActionListener
        g.setFont(new Font("Serif", Font.BOLD, 16));
        g.setColor(Color.white);
        g.drawString("Click reset to return to starting traits", this.getWidth()-270, 30);
+       g.drawString("Click and drag star to move", this.getWidth()-270, 60);
        if(count%7==0){
            gradRadius+=factor;
        }
