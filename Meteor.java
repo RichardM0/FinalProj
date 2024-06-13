@@ -18,7 +18,7 @@ public class Meteor
         this.y = y;
         dx = 0;
         dy = 0;
-
+        mass=25;
         this.radius = radius;
     }
     /*
@@ -33,6 +33,7 @@ public class Meteor
     public double getY(){
         return y;
     }
+
     public int getRadius(){
         return radius;
     }

@@ -18,17 +18,15 @@ public class GravityPanel extends JPanel implements ActionListener
     * Includes timer, speed variables, motion variables, and arraylist for orbiters, 
     */
    private int delay = 10;
-   private static final double G = 6.67430e-11;
+   private final double G = 6.67430e-11;
    protected Timer timer;
-   private ArrayList<Orbiter> orbiters = new ArrayList<Orbiter>();
    private ArrayList<Meteor> meteors = new ArrayList<Meteor>();
    private GravityPointer gp = new GravityPointer(90,90);
    private Orbiter orbiter = new Orbiter(0, 0, 10);
    private int factor = 1;
-   private int count = 0;
-   private int yOffset = 0;
+   private int count;
+   private int yOffset;
    private int gradRadius = 3*gp.getRadius()/4;
-   public static String speed = "low";
    /*
     * constructor for objects of OrbiterPanel
     * create an "original" orbiter
@@ -109,7 +107,6 @@ public class GravityPanel extends JPanel implements ActionListener
        }
    }
    public void reset(){
-       orbiters.clear();
        meteors.clear();
        gp.setMass(1e14);
        gp.setRadius(35);

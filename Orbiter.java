@@ -6,7 +6,7 @@ public class Orbiter
      */
     private double x, y;
     private int radius;
-    private double angle=0;
+    private double angle;
 
     /*
     * constructor for objects of class Ball

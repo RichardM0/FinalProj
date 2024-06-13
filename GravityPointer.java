@@ -19,20 +19,8 @@ public class GravityPointer
         this.y = y;
         mass = 5e13;
     }
-    public void setX(double newX){
-        x = newX;
-    }
-    public void setY(double newY){
-        y = newY;
-    }
-    public void setMass(double newMass){
-        mass = newMass;
-    }
     public double getMass(){
         return mass;
-    }
-    public void setRadius(int r){
-        radius = r;
     }
     public int getRadius(){
         return radius;
@@ -42,5 +30,17 @@ public class GravityPointer
     }
     public double getY(){
         return y;
+    }
+    public void setMass(double newMass){
+        mass = newMass;
+    }
+    public void setRadius(int r){
+        radius = r;
+    }
+    public void setX(double newX){
+        x = newX;
+    }
+    public void setY(double newY){
+        y = newY;
     }
 }
