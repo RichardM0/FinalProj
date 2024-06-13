@@ -1,15 +1,16 @@
 public class Orbiter
 {
     /*
-     * Instance variables for class Ball
-     * Variables have basic properties of the ball
+     * Instance variables for class Orbiter
+     * Variables have basic properties of the Orbiter
+     * x,y coordinates, radius, and angle to handle circular motion
      */
     private double x, y;
     private int radius;
     private double angle;
 
     /*
-    * constructor for objects of class Ball
+    * constructor for objects of class Orbiter
     * initializes instance variables
     */
  
@@ -20,10 +21,9 @@ public class Orbiter
 
     }
     /*
-     * Getter and Setter methods for class Ball
-     * Get and set basic properties of Ball
-     * Getter for X position, Y position, change in X and Y, color, time, and radius
-     * Setter for X position, Y position, change in X and Y, and color
+     * Getter methods for class Orbiter
+     * retrieves x,y coordinates and radius
+     * used in GravityPanel
      */
     public double getX(){
         return x;
@@ -34,6 +34,14 @@ public class Orbiter
     public int getRadius(){
         return radius;
     }
+    /*
+     * move Method
+     * uses equation for unit circle to model circular motion
+     * cx is center of rotation in x
+     * cy is center of rotation in y
+     * r is radius (distance) away from center
+     * increment angle for rotation
+     */
     public void move(int cx, int cy, int r){
        x = cx + r*Math.cos(angle);
        y = cy + r*Math.sin(angle);

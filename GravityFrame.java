@@ -20,9 +20,8 @@ public class GravityFrame extends JFrame implements ActionListener
    /*
    * constructor for objects of OrbiterFrame
    * Creates entire window
-   * Create menu with speed, gravity, and motion options
-   * Add the OrbiterPanel with the actual moving orbiters
-   * Have a subpanel with buttons Start Stop and Add Orbiters to change orbiters
+   * Add the GravityPanel with Orbiter, meteors, GravityPointer
+   * Have a subpanel with buttons addMeteor and reset to add meteor or reset frame
    * Add frame to the window
    */
    public GravityFrame()
@@ -65,9 +64,8 @@ public class GravityFrame extends JFrame implements ActionListener
    /*
     * actionPerformed method
     * Listens for which button was pressed:
-    * Stop button stops the orbiterPanel
-    * Start resumes the orbiterPanel action
-    * addOrbiters button adds orbiter to the orbiterPanel
+    * addMeteors button adds meteors
+    * reset resets frame to default settings
     */
    public void actionPerformed(ActionEvent e) {
         if(e.getSource() == addMeteors){

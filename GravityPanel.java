@@ -15,7 +15,7 @@ public class GravityPanel extends JPanel implements ActionListener
 {
    /*
     * Instance and Static variables for OrbiterPanel class
-    * Includes timer, speed variables, motion variables, and arraylist for orbiters, 
+    * Includes timer, gravitational constant, objects to paint, animation variables, and coordinate variables. 
     */
    private int delay = 10;
    private final double G = 6.67430e-11;
@@ -29,8 +29,8 @@ public class GravityPanel extends JPanel implements ActionListener
    private int gradRadius;
    /*
     * constructor for objects of OrbiterPanel
-    * create an "original" orbiter
     * Start a timer to keep refreshing screen
+    * initialize gradRadius used to create pulsing effect
     */
    public GravityPanel()
    {
@@ -48,9 +48,9 @@ public class GravityPanel extends JPanel implements ActionListener
    }
    /*
     * paintComponent method
-    * Paints every orbiter to the screen
-    * Checks every orbiter's positions and boundaries to change dX, dY
-    * Move the orbiter if stop button was not pressed
+    * Paints every element to the screen
+    * Pulsing animation displayed for GravityPointer
+    * runs all collisions, movements, etc.
     */
    public void paintComponent( Graphics g )
    {
@@ -96,6 +96,12 @@ public class GravityPanel extends JPanel implements ActionListener
        meteorCollision();
        attraction();
    }
+   /*
+    * setOffset dragGP, and reset method
+    * setOffset inputs the subPanel height and passes it into this class for calculations
+    * dragGP allows user to click and drag gravity pointer to move
+    * reset clears all meteors, resets gravity pointer to default
+    */
    public void setOffset(int y){
        yOffset = y;
    }
@@ -112,6 +118,12 @@ public class GravityPanel extends JPanel implements ActionListener
        gp.setMass(1e14);
        gp.setRadius(35);
    }
+   /*
+    * attraction method
+    * loops through each meteor and applys Newton's law of gravitational force
+    * Uses distance formula to get distance between meteor and gravity pointer
+    * updates velocity of each meteor (acceleration)
+    */
    public void attraction(){
        for(Meteor b : meteors){
            double dx = (gp.getX()+gp.getRadius())-(b.getX()+b.getRadius());
@@ -128,6 +140,11 @@ public class GravityPanel extends JPanel implements ActionListener
            b.updateVel(fx, fy);
        }
    }
+   /*
+    * meteorCollision method
+    * loops through each meteor and checks if its within the boundaries of GravityPointer
+    * if it does collide, increase radius and mass, then delete the meteor
+    */
    public void meteorCollision(){
        try{
            for(Meteor b : meteors){
@@ -145,6 +162,12 @@ public class GravityPanel extends JPanel implements ActionListener
            }
        }catch(Exception e){;}
    }
+   /*
+    * addMeteor method
+    * when clicked on add Meteor button, adds a meteor to screen
+    * random position away from the Gravity Pointer
+    * adds newly created meteor to meteors ArrayList
+    */
    public void addMeteor(){
        Random rand = new Random();
        int width = this.getWidth();
