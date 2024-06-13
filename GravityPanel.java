@@ -150,7 +150,7 @@ public class GravityPanel extends JPanel implements ActionListener
        int height = this.getHeight();
        int x = 30 + rand.nextInt(30 + 3*width/4);
        int y = 30 + rand.nextInt(30 + 3*height/4);
-       while((x>gp.getX() - 2*gp.getRadius() && x<gp.getX() + 2*gp.getRadius()) || y>gp.getY() - 2*gp.getRadius() && y<gp.getY() + 2*gp.getRadius()){
+       while((x>gp.getX() - 2*gp.getRadius() && x<gp.getX() + 4*gp.getRadius()) || y>gp.getY() - 2*gp.getRadius() && y<gp.getY() + 4*gp.getRadius()){
            x = 30 + rand.nextInt(30 + 3*width/4);
            y = 30 + rand.nextInt(30 + 3*height/4);
        }

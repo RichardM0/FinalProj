@@ -27,7 +27,7 @@ public class GravityFrame extends JFrame implements ActionListener
    */
    public GravityFrame()
    {
-        frame = new JFrame( "Gravity" );
+        frame = new JFrame( "Gravity Simulation" );
         frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );    
         bp = new GravityPanel();
         subPanel = new JPanel();
