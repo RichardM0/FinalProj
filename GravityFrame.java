@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 public class GravityFrame extends JFrame implements ActionListener
 {
@@ -14,7 +15,7 @@ public class GravityFrame extends JFrame implements ActionListener
    public static JFrame frame;
    private static GravityPanel bp;
    private static JPanel subPanel; 
-   private static JButton addMeteors, reset;
+   private static JButton addMeteors, reset, help;
    /*
    * constructor for objects of OrbiterFrame
    * Creates entire window
@@ -32,11 +33,14 @@ public class GravityFrame extends JFrame implements ActionListener
     
         addMeteors = new JButton("Add Meteors");
         reset = new JButton("Reset");
+        help = new JButton("Instructions");
         
         addMeteors.addActionListener(this);
         reset.addActionListener(this);
+        help.addActionListener(this);
         subPanel.add(addMeteors);
         subPanel.add(reset);
+        subPanel.add(help);
         frame.addMouseMotionListener(new MouseAdapter() {  
           public void mouseDragged(MouseEvent me){
               bp.dragGP(me.getX(), me.getY());
@@ -71,6 +75,9 @@ public class GravityFrame extends JFrame implements ActionListener
         }
         else if(e.getSource() == reset){
             bp.reset();
+        }
+        else if(e.getSource() == help){
+            JOptionPane.showMessageDialog(frame, "Meteors attract to pulsing star.\nClick add Meteors to add a meteor\nClick reset to return objects to default state.\nHold mouse on star to move around");
         }
    }
 }
