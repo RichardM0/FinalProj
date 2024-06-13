@@ -26,7 +26,7 @@ public class GravityPanel extends JPanel implements ActionListener
    private int factor = 1;
    private int count;
    private int yOffset;
-   private int gradRadius = 3*gp.getRadius()/4;
+   private int gradRadius;
    /*
     * constructor for objects of OrbiterPanel
     * create an "original" orbiter
@@ -36,6 +36,7 @@ public class GravityPanel extends JPanel implements ActionListener
    {
       timer = new Timer(delay, this);
       timer.start();
+      gradRadius = 3*gp.getRadius()/4;
    }
    /*
     * actionPerformed method
